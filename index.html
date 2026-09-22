@@ -10,28 +10,41 @@
     <script>
 
 
-        let gyumolcsok = ["Alma", "Banán", "Körte"]
-        let masolat = [...gyumolcsok]
-        masolat.push("paprika")
+        // let gyumolcsok = ["Alma", "Banán", "Körte"]
+        // let masolat = [...gyumolcsok]
+        // masolat.push("paprika")
 
 
-        let szamok = [5,8,2,10]
-        console.log(Math.max(...szamok))
+        // let szamok = [5,8,2,10]
+        // console.log(Math.max(...szamok))
 
 
 
-        let szo = "web";
-        let betuk = [...szo];
+        // let szo = "web";
+        // let betuk = [...szo];
 
-        const nev = "Anna";
-        let betu = "";
-        [...nev].forEach(betu=>{
-            console.log(betu)
-        })
+        // const nev = "Anna";
+        // let betu = "";
+        // [...nev].forEach(betu=>{
+        //     console.log(betu)
+        // })
+
+        tomb = ["Anna","Máté","Ati"];
+
+        let auto = {
+            marka: "Audi",
+            tipus: "A4"
+        };
+
+        let autoUj = {...auto,szin:"kék"};
+
+        let auto2 = {
+            ...auto,
+            tipus:"A5"
+        };
+
+        
+
     </script>
-
-    
-
-
 </body>
 </html>
