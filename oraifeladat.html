@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     
+<div class="container">
     <p id="eredmeny"></p>
-    <input type="text" id="nev" placeholder="Következő név:">
-    <button id="gomb">Add</button>
+    <input type="text" id="nev" placeholder="Következő név:" class="form-control w-50">
+    <button id="gomb" class="my-2 btn btn-primary w-25">Add</button>
     <!-- <p id="diakokelem"></p> -->
     <ul id="diakokelem">
 
     </ul>
+</div>
 
     <script>
         const gomb = document.getElementById("gomb");
@@ -25,16 +28,19 @@
         let keszNevek = [];
 
         function megjelenit(lista){
-            let uj = document.createElement("li");
-            let torles = document.createElement("button");
-            torles.textContent = "Törlés";
-            torles.style.backgroundColor = "red";
-
-            let keszGomb = document.createElement("button");
-            keszGomb.textContent = "Kész";
-            keszGomb.style.backgroundColor = "green";
+            diakokelem.textContent = "";
             
             lista.forEach(elem => {
+                let torles = document.createElement("button");
+                torles.textContent = "Törlés";
+                torles.classList = "btn btn-danger mx-1";
+                
+                let keszGomb = document.createElement("button");
+                keszGomb.textContent = "Kész";
+                keszGomb.classList = "btn btn-success mx-1";
+
+                let uj = document.createElement("li");
+                uj.classList = "my-2";
                 uj.textContent = elem;
                 uj.appendChild(keszGomb);
                 uj.appendChild(torles);
@@ -45,9 +51,10 @@
                     diakokelem.removeChild(uj);
                 });
                 keszGomb.addEventListener("click",function(){
-                    // alert(elem);
-                    keszNevek.push(elem);
-                    alert(keszNevek);
+                    if(!keszNevek.includes(elem)){
+                        keszNevek.push(elem);
+                        alert(keszNevek);
+                    }
                 });
             });
             
