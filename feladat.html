@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyakorlás</title>
+</head>
+<body>
+    <button id="uj">Új diák hozzáadása</button>
+    <p id="diakok"></p>
+
+    <script>
+        const gomb = document.getElementById("uj");
+        const diakokelem = document.getElementById("diakok");
+
+        let diakok = ["Anna","Bence"];
+        function megjelenit(){
+            diakokelem.textContent = diakok.join(", ");
+        }
+
+        megjelenit();
+
+        gomb.addEventListener("click",()=>{
+            diakok=[...diakok,"Csilla"];
+            megjelenit();
+        });
+    </script>
+</body>
+</html>

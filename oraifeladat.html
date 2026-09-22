@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="eredmeny"></p>
+    <input type="text" id="nev" placeholder="Következő név:">
+    <button id="gomb">Add</button>
+    <!-- <p id="diakokelem"></p> -->
+    <ul id="diakokelem">
+
+    </ul>
+
+    <script>
+        const gomb = document.getElementById("gomb");
+        const diakokelem = document.getElementById("diakokelem");
+        const eredmeny = document.getElementById("eredmeny");
+
+        let diakok = ["Anna","Bence"];
+
+        let keszNevek = [];
+
+        function megjelenit(lista){
+            let uj = document.createElement("li");
+            let torles = document.createElement("button");
+            torles.textContent = "Törlés";
+            torles.style.backgroundColor = "red";
+
+            let keszGomb = document.createElement("button");
+            keszGomb.textContent = "Kész";
+            keszGomb.style.backgroundColor = "green";
+            
+            lista.forEach(elem => {
+                uj.textContent = elem;
+                uj.appendChild(keszGomb);
+                uj.appendChild(torles);
+                
+                diakokelem.appendChild(uj);
+
+                torles.addEventListener("click",function(){
+                    diakokelem.removeChild(uj);
+                });
+                keszGomb.addEventListener("click",function(){
+                    // alert(elem);
+                    keszNevek.push(elem);
+                    alert(keszNevek);
+                });
+            });
+            
+        }
+
+        megjelenit(diakok);
+
+        gomb.addEventListener("click",()=>{
+            let ertek = document.getElementById("nev").value;
+            if(!diakok.includes(ertek)&&ertek!=""){
+                diakok=[...diakok,ertek];
+                megjelenit(diakok);
+                document.getElementById("nev").value = "";
+            } else{
+                alert("Hé haver! benne van a listában!");
+            }
+        });
+    </script>
+</body>
+</html>
